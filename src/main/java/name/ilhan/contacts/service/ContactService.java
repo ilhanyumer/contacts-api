@@ -25,4 +25,8 @@ public class ContactService {
         Contact contact = contactsRepository.findById(id).get();
         return contact;
     }
+
+    public void deleteById(Integer id) {
+        contactsRepository.deleteById(id);
+    }
 }

@@ -3,6 +3,7 @@ package name.ilhan.contacts.controller;
 import name.ilhan.contacts.model.Contact;
 import name.ilhan.contacts.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,12 @@ public class ContactController {
             @PathVariable Integer id
     ) {
         return contactService.findById(id);
+    }
+
+    @DeleteMapping("/contacts/{id}")
+    public void deleteContact(
+            @PathVariable Integer id
+    ) {
+        contactService.deleteById(id);
     }
 }
