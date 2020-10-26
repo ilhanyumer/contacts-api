@@ -4,6 +4,7 @@ import name.ilhan.contacts.model.Contact;
 import name.ilhan.contacts.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +18,12 @@ public class ContactController {
     @GetMapping("/contacts")
     public List<Contact> allContacts() {
         return contactService.findAll();
+    }
+
+    @GetMapping("/contacts/{id}")
+    public Contact getContact(
+            @PathVariable Integer id
+    ) {
+        return contactService.findById(id);
     }
 }

@@ -20,4 +20,9 @@ public class ContactService {
         it.forEach(e -> contacts.add(e));
         return contacts;
     }
+
+    public Contact findById(Integer id) {
+        Contact contact = contactsRepository.findById(id).get();
+        return contact;
+    }
 }
