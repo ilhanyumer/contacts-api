@@ -22,7 +22,7 @@ public class ContactController {
         return contactService.findAll();
     }
 
-    @GetMapping("/contacts/{id}")
+    @GetMapping(value = "/contacts/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Contact getContact(
             @PathVariable Integer id
     ) {
