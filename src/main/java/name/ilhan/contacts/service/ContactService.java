@@ -1,5 +1,6 @@
 package name.ilhan.contacts.service;
 
+import name.ilhan.contacts.dto.ContactInput;
 import name.ilhan.contacts.model.Contact;
 import name.ilhan.contacts.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,12 @@ public class ContactService {
 
     public void deleteById(Integer id) {
         contactsRepository.deleteById(id);
+    }
+
+    public Contact createContact(ContactInput contactInput) {
+        Contact contact = new Contact();
+        contact.setName(contactInput.getName());
+        contact.setSurname(contactInput.getSurname());
+        return contactsRepository.save(contact);
     }
 }

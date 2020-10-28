@@ -1,13 +1,11 @@
 package name.ilhan.contacts.controller;
 
+import name.ilhan.contacts.dto.ContactInput;
 import name.ilhan.contacts.model.Contact;
 import name.ilhan.contacts.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,5 +32,10 @@ public class ContactController {
             @PathVariable Integer id
     ) {
         contactService.deleteById(id);
+    }
+
+    @PostMapping("/contacts")
+    public Contact createContact(ContactInput contact) {
+        return contactService.createContact(contact);
     }
 }
