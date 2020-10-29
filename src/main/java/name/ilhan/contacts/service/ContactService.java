@@ -37,4 +37,12 @@ public class ContactService {
         contact.setSurname(contactInput.getSurname());
         return contactsRepository.save(contact);
     }
+
+    public Contact fullyUpdateContact(Integer id, ContactInput contactInput) {
+        Contact contact = new Contact();
+        contact.setName(contactInput.getName());
+        contact.setSurname(contactInput.getSurname());
+        contact.setId(id);
+        return contactsRepository.save(contact);
+    }
 }

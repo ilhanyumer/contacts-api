@@ -41,4 +41,15 @@ public class ContactController {
     ) {
         return contactService.createContact(contact);
     }
+
+    @PutMapping(value = "/contacts/{id}")
+    public Contact fullyUpdateContact(
+            @PathVariable
+            Integer id,
+
+            @RequestBody
+            ContactInput contact
+    ) {
+        return contactService.fullyUpdateContact(id, contact);
+    }
 }
