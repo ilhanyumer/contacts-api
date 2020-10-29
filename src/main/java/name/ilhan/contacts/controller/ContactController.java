@@ -34,8 +34,11 @@ public class ContactController {
         contactService.deleteById(id);
     }
 
-    @PostMapping(value = "/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Contact createContact(ContactInput contact) {
+    @PostMapping(value = "/contacts", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Contact createContact(
+            @RequestBody
+            ContactInput contact
+    ) {
         return contactService.createContact(contact);
     }
 }
