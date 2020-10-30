@@ -42,7 +42,7 @@ public class ContactController {
         return contactService.createContact(contact);
     }
 
-    @PutMapping(value = "/contacts/{id}")
+    @PutMapping(value = "/contacts/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Contact fullyUpdateContact(
             @PathVariable
             Integer id,
