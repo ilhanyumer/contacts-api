@@ -36,6 +36,7 @@ public class ContactController {
     }
 
     @PostMapping(value = "/contacts", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Create a contact")
     public Contact createContact(
             @RequestBody
             ContactInput contact
