@@ -1,5 +1,6 @@
 package name.ilhan.contacts.controller;
 
+import io.swagger.annotations.ApiOperation;
 import name.ilhan.contacts.dto.ContactInput;
 import name.ilhan.contacts.model.Contact;
 import name.ilhan.contacts.service.ContactService;
@@ -43,6 +44,7 @@ public class ContactController {
     }
 
     @PutMapping(value = "/contacts/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Update the contact with all attributes")
     public Contact fullyUpdateContact(
             @PathVariable
             Integer id,
