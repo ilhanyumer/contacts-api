@@ -55,4 +55,13 @@ public class ContactController {
     ) {
         return contactService.fullyUpdateContact(id, contact);
     }
+
+    @PatchMapping(value = "/contacts/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Update the contact with all attributes")
+    public Contact partialUpdateContact(
+            @PathVariable Integer id,
+            @RequestBody ContactInput contact
+    ) {
+        return contactService.partialUpdateContact(id, contact);
+    }
 }
