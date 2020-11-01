@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContactService {
@@ -43,6 +44,19 @@ public class ContactService {
         contact.setName(contactInput.getName());
         contact.setSurname(contactInput.getSurname());
         contact.setId(id);
+        return contactsRepository.save(contact);
+    }
+
+    public Contact partialUpdateContact(Integer id, ContactInput contactInput) {
+        Optional<Contact> contactOptional = contactsRepository.findById(id);
+        Contact contact = contactOptional.get();
+        contact.setId(id);
+        if(contactInput.getName() != null) {
+            contact.setName(contactInput.getName());
+        }
+        if(contactInput.getSurname() != null) {
+            contact.setSurname(contactInput.getSurname());
+        }
         return contactsRepository.save(contact);
     }
 }
