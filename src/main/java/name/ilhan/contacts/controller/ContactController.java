@@ -23,6 +23,7 @@ public class ContactController {
     }
 
     @GetMapping(value = "/contacts/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get a contact")
     public Contact getContact(
             @PathVariable Integer id
     ) {
