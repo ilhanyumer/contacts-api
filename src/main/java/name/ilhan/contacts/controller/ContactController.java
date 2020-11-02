@@ -17,6 +17,7 @@ public class ContactController {
     private ContactService contactService;
 
     @GetMapping(value = "/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get all contacts")
     public List<Contact> allContacts() {
         return contactService.findAll();
     }
