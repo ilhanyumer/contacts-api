@@ -31,6 +31,7 @@ public class ContactController {
     }
 
     @DeleteMapping("/contacts/{id}")
+    @ApiOperation(value = "Delete a contact")
     public void deleteContact(
             @PathVariable Integer id
     ) {
