@@ -40,6 +40,8 @@ public class ContactService {
     }
 
     public Contact fullyUpdateContact(Integer id, ContactInput contactInput) {
+        Optional<Contact> contactOptional = contactsRepository.findById(id);
+        contactOptional.get();
         Contact contact = new Contact();
         contact.setName(contactInput.getName());
         contact.setSurname(contactInput.getSurname());
